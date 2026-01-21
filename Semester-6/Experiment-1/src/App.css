@@ -1,0 +1,120 @@
+/* Resetting everything for Full Screen */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main Wrapper - Takes full viewport */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* 🟢 Navbar: Full Width & Equal Spacing */
+.navbar {
+  height: 70px;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 5%; /* Side gaps for professional look */
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Logo left, Buttons right */
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -1px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons constant size and shape */
+.nav-btn {
+  padding: 8px 20px;
+  min-width: 100px; /* Constant size for all buttons */
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: #1e293b;
+  color: white;
+}
+
+/* 🔵 Main Content: Constant Full Page area */
+.main-content {
+  flex: 1; /* Occupies all remaining space */
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  width: 100%;
+  padding: 60px 10%; /* Content moves to full width with side padding */
+  text-align: left; /* Industry standard left align */
+}
+
+/* Services Grid: Full Width Cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.service-item {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+/* 🔴 Footer: Fixed at bottom */
+.footer {
+  height: 60px;
+  width: 100%;
+  background: #1e293b;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #334155;
+}
