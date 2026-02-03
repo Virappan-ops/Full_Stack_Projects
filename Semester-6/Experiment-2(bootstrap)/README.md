@@ -62,7 +62,7 @@ You can easily customize the card content or background colors in `App.jsx`:
   blindCount={12}
 />
 
-🤝 Credits
+## 🤝 Credits
 * Animated Components: React Bits
 * UI Components: Material UI (MUI)
 * Smooth Scroll: Lenis

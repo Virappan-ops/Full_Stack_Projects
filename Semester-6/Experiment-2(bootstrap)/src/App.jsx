@@ -1,135 +1,137 @@
-import { useState, useEffect, useRef } from 'react'
 import './App.css'
+import { Container, Row, Col, Navbar, Nav, NavDropdown, Card, Button } from 'react-bootstrap'
+import { useRef } from 'react'
 import HoverRating from './components/rating'
 import ImageAvatars from './components/avatar'
-import ScrollStack, { ScrollStackItem } from './components/ScrollStack';
-import GradientBlinds from './components/GradientBlinds'
-
+import RecipeReviewCard from './components/ReviewCard.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [scrollY, setScrollY] = useState(0)
-  const scrollRef = useRef(null)
+  const aboutRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (scrollRef.current) {
-        setScrollY(scrollRef.current.scrollTop)
-      }
-    }
-    const ref = scrollRef.current
-    if (ref) {
-      ref.addEventListener('scroll', handleScroll)
-      return () => ref.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  const scrollToAbout = () => {
+    aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div style={{
-      height: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden',
-      position: 'relative'
-    }}>
-      {/* Full-page GradientBlinds background */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0
-        }}
-      >
-        <GradientBlinds
-          gradientColors={['#FF9FFC', '#5227FF']}
-          angle={0}
-          noise={0.3}
-          blindCount={12}
-          blindMinWidth={50}
-          spotlightRadius={0.5}
-          spotlightSoftness={1}
-          spotlightOpacity={1}
-          mouseDampening={0.15}
-          distortAmount={0}
-          shineDirection="left"
-          mixBlendMode="lighten"
-          scrollY={scrollY}
-        />
-      </div>
+    <>
+      <Navbar bg="light" variant="light" expand="lg" sticky="top">
+        <Container>
+          <Navbar.Brand href="#home">My Website</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+              <NavDropdown title="Projects" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#projects">All Projects</NavDropdown.Item>
+                <NavDropdown.Item href="#project1">Project 1</NavDropdown.Item>
+                <NavDropdown.Item href="#project2">Project 2</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#contact">Contact</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-      {/* Top right avatar */}
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        zIndex: 10
-      }}>
-        <ImageAvatars />
-      </div>
-
-      {/* Main content area - full screen ScrollStack */}
-      <div 
-        ref={scrollRef}
-        style={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          width: '100%',
-          height: '100vh',
-          zIndex: 5,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'auto'
-        }}
-      >
-        <div style={{ width: '100%', height: '100%' }}>
-          <ScrollStack
-            itemDistance={100}
-            itemScale={0.03}
-            itemStackDistance={30}
-            stackPosition="20%"
-            scaleEndPosition="10%"
-            baseScale={0.85}
-            rotationAmount={0}
-            blurAmount={0}
-            useWindowScroll={false}
-            onStackComplete={() => console.log('Stack animation complete')}
-          >
-            <ScrollStackItem itemClassName="card-blue">
-              <h2>Name</h2>
-              <p>Virappan</p>
-            </ScrollStackItem>
-            <ScrollStackItem itemClassName="card-green">
-              <h2>UID</h2>
-              <p>23BAI70674</p>
-            </ScrollStackItem>
-            <ScrollStackItem itemClassName="card-purple">
-              <h2>Section</h2>
-              <p>23AML - 7B</p>
-            </ScrollStackItem>
-          </ScrollStack>
+      {/* Hero Section */}
+      <section id="home" className="bg-primary text-white py-5 position-relative overflow-hidden">
+        <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: 'linear-gradient(135deg, #007bff 0%, #6610f2 100%)', opacity: 0.9 }}></div>
+        <Container className="position-relative">
+          <Row className="align-items-center justify-content-center min-vh-100">
+            <Col md={5} className="text-center text-md-start">
+              <h1 className="display-4 fw-bold mb-3">Welcome to My Portfolio</h1>
+              <p className="lead mb-4">Full-Stack Developer specializing in React, Node.js, and AI Solutions. Let's build something amazing together!</p>
+            </Col>
+            <Col md={7} className="text-center">
+              <p className="mb-3 fw-bold">Click on image to continue</p>
+              <img 
+                src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ef888b561df3af53ddd2fb8fa8f5cfff6d911acf98a7042af4730d9c2f145fb44e9b2b3f7b3f1754c2ca5dc62ebb281c5" 
+                alt="Developer Portrait" 
+                className="img-fluid rounded-circle shadow-lg" 
+                style={{ maxWidth: '600px', border: '5px solid white', cursor: 'pointer' }}
+                onClick={scrollToAbout}
+              />
+            </Col>
+          </Row>
+        </Container>
+        <div className="position-absolute bottom-0 end-0 p-4 opacity-25">
+          <i className="bi bi-code-slash display-1"></i>
         </div>
-      </div>
+      </section>
 
-      {/* Footer stuck to bottom */}
-      <footer style={{
-        position: 'absolute',
-        bottom: '0',
-        left: '0',
-        right: '0',
-        padding: '20px',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        backdropFilter: 'blur(10px)',
-        borderTop: '1px solid rgba(0, 0, 0, 0.1)',
-        zIndex: 10
-      }}>
-        <HoverRating />
+      {/* About Section */}
+      <section id="about" ref={aboutRef} className="py-5">
+        <Container>
+          <Row className="align-items-center">
+            <Col md={6}>
+              <h2>About Me</h2>
+              <p>I am a passionate full-stack developer with experience in building web applications using modern technologies.</p>
+              <ImageAvatars />
+            </Col>
+            <Col md={6}>
+              <RecipeReviewCard />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="bg-light py-5">
+        <Container>
+          <h2 className="text-center mb-4">My Projects</h2>
+          <Row>
+            <Col md={4} id="project1">
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>IONIX AI</Card.Title>
+                  <Card.Text>An AI-powered productivity assistant built with MERN stack.</Card.Text>
+                  <Button variant="primary">View Details</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4} id="project2">
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>E-Store PWA</Card.Title>
+                  <Card.Text>Full-stack storefront with offline capabilities.</Card.Text>
+                  <Button variant="primary">View Details</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>Azure Bot</Card.Title>
+                  <Card.Text>AI chatbot trained for cloud service queries.</Card.Text>
+                  <Button variant="primary">View Details</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-5 bg-dark text-white">
+        <Container>
+          <Row className="justify-content-center">
+            <Col md={6} className="text-center">
+              <h2>Contact Me</h2>
+              <p>Get in touch for collaborations or inquiries.</p>
+              <HoverRating />
+              <p>Rate my work!</p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-light py-3">
+        <Container className="text-center">
+          <p>&copy; 2024 My Website. All rights reserved.</p>
+        </Container>
       </footer>
-    </div>
+    </>
   )
 }
 

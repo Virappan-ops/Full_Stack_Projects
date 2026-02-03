@@ -1,4 +1,6 @@
 
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 @import "tailwindcss/preflight";
 
 @plugin "tailwindcss-animate";
