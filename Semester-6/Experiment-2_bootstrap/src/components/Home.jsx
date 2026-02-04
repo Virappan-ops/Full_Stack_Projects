@@ -1,7 +1,7 @@
 import { Grid, Container, Typography, Box } from '@mui/material';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import ProjectCard from '../components/ProjectCard';
+import Navbar from './Navbar';
+import Hero from './Hero';
+import ProjectCard from './ProjectCard';
 
 const Home = () => {
   return (
