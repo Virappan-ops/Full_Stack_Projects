@@ -1,68 +1,137 @@
-# 🚀 Interactive UI/UX Scroll Experiment
+# 🚀 DevVault – Portfolio & UI/UX Experiment
 
-A visually immersive React application that integrates **WebGL-powered backgrounds**, **smooth-scrolling stack animations**, and **polished Material UI components**. This project demonstrates a seamless blend of high-performance animations from React Bits with the functional elegance of Material UI.
+DevVault is a modern, responsive React application developed as a UI/UX experiment to explore **component-based architecture**, **hybrid UI frameworks**, and **scalable frontend design**.
+
+This project demonstrates the transition from monolithic layouts to modular, reusable components with a strong focus on performance, usability, and visual consistency.
+
+---
 
 ## ✨ Key Features
 
-* **WebGL Gradient Blinds:** A dynamic, noise-textured gradient background rendered using `ogl` that updates visually as the user scrolls.
-* **Smooth Scroll Stack:** A "pinned" card interaction where items stack and scale dynamically, creating a tactile depth effect.
-* **Lenis Integration:** Utilizes the Lenis library to ensure ultra-smooth scrolling across all browsers and devices.
-* **Material UI Elements:** * **Avatar:** A clean profile identification component positioned in the header.
-    * **Interactive Rating:** A footer-based feedback system with animated hover states.
-* **Responsive Architecture:** Built with Tailwind CSS and custom CSS modules to ensure a fluid layout on any screen size.
+* Hybrid UI Integration using Material UI and Bootstrap  
+* Interactive Student Profile Card with expandable details  
+* Responsive Hero Section with smooth scrolling  
+* Star-based Feedback and Rating System  
+* Programmatic Navigation using React Hooks  
+* Glassmorphic Dark-Themed Interface  
+* Mobile-first and cross-device compatible design  
+
+---
 
 ## 🛠️ Tech Stack
 
-* **Framework:** React 18+ (Vite)
-* **Styling:** Tailwind CSS & Material UI System
-* **Animation Libraries:**
-    * **Lenis:** High-performance smooth scrolling.
-    * **OGL:** Minimalist WebGL library for the background effects.
-* **UI Components:** [Material UI (MUI)](https://mui.com/) and [React Bits](https://www.reactbits.dev/).
+* **Framework:** React.js (Vite-powered)
+
+* **UI Libraries:**
+  * Material UI (MUI)
+  * Bootstrap 5
+
+* **Styling:**
+  * Tailwind CSS
+  * Custom CSS
+
+* **State Management:**
+  * useState
+  * useRef
+  * useEffect
+
+* **Icons:**
+  * Material Icons
+  * Bootstrap Icons
+
+---
+
+## 👤 Developer Profile
+
+* **Name:** Virappan  
+* **UID:** 23BAI70674  
+* **Section:** 23AML-7B  
+* **University:** Chandigarh University  
+* **Specialization:** Artificial Intelligence & Machine Learning  
+* **Interest:** Full-Stack Development  
+
+---
 
 ## 📦 Installation & Setup
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/your-username/interactive-scroll-experiment.git](https://github.com/your-username/interactive-scroll-experiment.git)
-    cd interactive-scroll-experiment
-    ```
+### 1. Clone the Repository
 
-2.  **Install Dependencies:**
-    ```bash
-    npm install @mui/material @emotion/react @emotion/styled @mui/icons-material lenis ogl tailwindcss
-    ```
+```bash
+git clone [your-repository-link]
+cd devvault
+```
 
-3.  **Run the Development Server:**
-    ```bash
-    npm run dev
-    ```
+### 2. Install Dependencies
+```bash
+npm install 
+```
+
+### 3. Run the Development Server
+```bash
+npm run dev
+```
 
 ## 📂 Project Structure
 
-* **App.jsx**: The primary orchestrator managing state and component layout.
-* **ScrollStack.jsx**: Handles the complex pinning logic and card transformation math.
-* **GradientBlinds.jsx**: The WebGL renderer for the animated background.
-* **avatar.jsx & rating.jsx**: Polished UI components for user identity and feedback.
+```bash
+src/
+├── components/
+│   ├── avatar.jsx        # MUI Avatar Component
+│   ├── card.jsx          # Student Review Card
+│   ├── Hero.jsx          # Landing Section
+│   ├── Navbar.jsx        # Navigation Bar
+│   ├── ProjectCard.jsx   # Reusable Project Components
+│   └── rating.jsx        # Rating System
+├── App.jsx               # Main Application Logic
+├── index.css             # Global Styles
+└── main.jsx              # Entry Point
+```
 
 ## 📝 Configuration
 
-You can easily customize the card content or background colors in `App.jsx`:
-
+You can customize content and layout from App.jsx:
 ```jsx
-// Modify card content
-<ScrollStackItem itemClassName="card-blue">
-  <h2>Name</h2>
-  <p>Virappan</p>
-</ScrollStackItem>
-
-// Change background colors
-<GradientBlinds
-  gradientColors={['#FF9FFC', '#5227FF']}
-  blindCount={12}
+// Modify student information
+<ReviewCard
+  name="Virappan"
+  uid="23BAI70674"
+  branch="AI & ML"
 />
 
+// Enable smooth scrolling
+sectionRef.current.scrollIntoView({
+  behavior: "smooth",
+});
+```
+
+## 🎯 Project Objectives
+
+* Implement modular frontend architecture
+* Improve UI reusability and scalability
+* Learn cross-library integration
+* Practice industry-level folder structuring
+* Enhance responsive design skills
+* Apply modern React development patterns
+
+## 🚀 Highlights
+
+* Clean and scalable codebase
+* Modular component system
+* Professional documentation
+* Resume-ready project structure
+* Optimized for performance
+* Interview-friendly showcase
+
+## 📢 Conclusion
+
+DevVault represents a significant milestone in my academic and technical journey. It showcases my ability to design and develop modern, scalable, and user-friendly web applications using industry-standard technologies.
+
+This project reflects my continuous growth in frontend engineering and UI/UX design.
+
 ## 🤝 Credits
-* Animated Components: React Bits
-* UI Components: Material UI (MUI)
-* Smooth Scroll: Lenis
+
+* **UI Components:** Material UI (MUI)
+* **Layout Framework:** Bootstrap 5
+* **Framework:** React.js
+* **Build Tool:** Vite
+* **Styling:** Tailwind CSS
